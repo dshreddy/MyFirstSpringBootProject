@@ -1,20 +1,20 @@
 package org.example;
 
+import org.example.service.UserService;
+import org.springframework.context.ApplicationContext;
+import org.example.bean.UserConfig;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 @SpringBootApplication
-@RestController
 public class Main {
 
     public static void main(String[] args) {
         SpringApplication.run(Main.class, args);
-    }
 
-    @GetMapping("/")
-    public String hello() {
-        return "Hello and welcome to Spring Boot!";
+        // Beans will not be created if they are not invoked like this
+        ApplicationContext context = new ClassPathXmlApplicationContext("beans.xml");
+        UserService userService = (UserService) context.getBean("userService");
     }
 }

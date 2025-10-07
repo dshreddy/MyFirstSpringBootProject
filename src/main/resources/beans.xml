@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--Bean Creation-->
+    <bean id="userConfig" class="org.example.bean.UserConfig">
+        <property name="name" value="John Doe" />
+        <property name="className" value="Example Class" />
+    </bean>
+
+    <!--Bean Injection-->
+    <bean id="userService" class="org.example.service.UserService">
+        <constructor-arg ref="userConfig" />
+    </bean>
+
+</beans>
