@@ -1,5 +1,7 @@
 package org.example.bean;
 
+import jakarta.annotation.PostConstruct;
+
 public class UserConfig {
     private String name;
     private String className;
@@ -10,5 +12,18 @@ public class UserConfig {
 
     public void setClassName(String className) {
         this.className = className;
+    }
+
+    @Override
+    public String toString() {
+        return "UserConfig{" +
+                "name='" + name + '\'' +
+                ", className='" + className + '\'' +
+                '}';
+    }
+
+    @PostConstruct
+    public void init() {
+        System.out.println("UserConfig Bean Created: " + this);
     }
 }
