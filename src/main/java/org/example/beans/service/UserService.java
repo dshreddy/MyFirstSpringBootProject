@@ -1,7 +1,7 @@
-package org.example.service;
+package org.example.beans.service;
 
 import jakarta.annotation.PostConstruct;
-import org.example.bean.UserConfig;
+import org.example.beans.bean.UserConfig;
 
 public class UserService {
     private UserConfig userConfig;

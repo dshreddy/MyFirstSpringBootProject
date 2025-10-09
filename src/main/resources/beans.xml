@@ -5,19 +5,19 @@
         http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
     <!--Bean Creation-->
-    <bean id="userConfig" class="org.example.bean.UserConfig">
+    <bean id="userConfig" class="org.example.beans.bean.UserConfig">
         <property name="name" value="John Doe" />
         <property name="className" value="Example Class" />
     </bean>
 
     <!--Bean Injection-->
-    <bean id="userService" class="org.example.service.UserService">
+    <bean id="beanUserService" class="org.example.beans.service.UserService">
         <constructor-arg ref="userConfig" />
     </bean>
 
     <!--The previous methods creates a bean  by initialising the constructor-->
-    <bean id="orderService" class="org.example.service.OrderService" factory-method="createInstance">
-        <constructor-arg ref="userService" />
+    <bean id="orderService" class="org.example.beans.service.OrderService" factory-method="createInstance">
+        <constructor-arg ref="beanUserService" />
     </bean>
 
 </beans>

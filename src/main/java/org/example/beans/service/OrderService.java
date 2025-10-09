@@ -1,4 +1,4 @@
-package org.example.service;
+package org.example.beans.service;
 
 import jakarta.annotation.PostConstruct;
 
